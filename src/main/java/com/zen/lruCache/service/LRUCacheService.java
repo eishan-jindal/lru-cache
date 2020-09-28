@@ -30,4 +30,10 @@ public class LRUCacheService {
 
         lruCache.put(key, value);
     }
+
+    public String display() throws Exception {
+        if(!isInitialized)
+            throw new Exception("Cache has not been initialized");
+        return lruCache.display();
+    }
 }

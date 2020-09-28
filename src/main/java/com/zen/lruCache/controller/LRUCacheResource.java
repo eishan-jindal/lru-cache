@@ -14,6 +14,16 @@ public class LRUCacheResource {
         this.lruCacheService = lruCacheService;
     }
 
+    @GetMapping
+    public ApiResponse<String> display(){
+        try{
+            String cache = lruCacheService.display();
+            return new ApiResponse<>(true,ResponseCodeEnum.SUCCESS, cache);
+        }catch (Exception e){
+            return new ApiResponse<>(false, ResponseCodeEnum.INTERNAL_SERVER_ERROR,null, e.getMessage());
+        }
+    }
+
     @PostMapping("/initialize")
     public ApiResponse<Object> initialize(@RequestParam(name = "capacity") Integer cacheSize){
         try{
