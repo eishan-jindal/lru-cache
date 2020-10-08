@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("lru")
-public class LRUCacheResource {
+public class LRUCacheController {
     private final LRUCacheService lruCacheService;
 
-    public LRUCacheResource(LRUCacheService lruCacheService) {
+    public LRUCacheController(LRUCacheService lruCacheService) {
         this.lruCacheService = lruCacheService;
     }
 
